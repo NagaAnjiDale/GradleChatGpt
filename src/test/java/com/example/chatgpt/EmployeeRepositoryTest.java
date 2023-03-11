@@ -25,8 +25,10 @@ public class EmployeeRepositoryTest {
 
         employeeRepository.save(employee);
 
-        Assertions.assertNotNull(employee.getId());
+        Assertions.assertNotNull(employee.getId(), "Employee ID should not be null");
+        Assertions.assertNotEquals(0L, (long) employee.getId(), "Employee ID should not be zero");
     }
+
 
     @Test
     public void testFindAllEmployees() {
